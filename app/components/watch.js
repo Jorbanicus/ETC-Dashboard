@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import RenderText from './textread';
+import TextDisplay from './textDisplay';
 
 export default function Watch() {
   return (
@@ -23,7 +23,7 @@ export default function Watch() {
         </div>
 
         <div className='text-white font-bold text-3xl'>
-          <RenderText />
+          <TextDisplay/>
         </div>
       </div>
     </div>
