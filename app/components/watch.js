@@ -3,6 +3,7 @@
 import React from 'react';
 import TextDisplay from './textDisplay';
 
+
 export default function Watch() {
   return (
     <div className='flex flex-col md:flex-row bg-black p-1 rounded-md'>
@@ -23,7 +24,7 @@ export default function Watch() {
         </div>
 
         <div className='text-white font-bold text-3xl'>
-          <TextDisplay/>
+          <TextDisplay />
         </div>
       </div>
     </div>

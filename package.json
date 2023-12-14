@@ -16,6 +16,7 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "@types/html-minifier-terser": "^7.0.2",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "raw-loader": "^4.0.2",

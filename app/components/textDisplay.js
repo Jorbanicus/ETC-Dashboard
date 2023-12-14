@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import readTextFile from './readTextFile';
+"use client";
 
-const TextDisplay = () => {
+import React, { useEffect, useState } from 'react';
+
+function TextDisplay () {
   const [date, setDate] = useState('');
-  const [timing, setTiming] = useState('');
 
   useEffect(() => {
     const filePath = 'test.txt';
-    readTextFile(filePath)
-      .then((data) => {
+    fetch(filePath)
+      .then(response => response.text())
+      .then(data => {
         const lines = data.split('\n');
         setDate(lines[0]);
-        setTiming(lines[1]);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(error => {
+        console.error('Error reading the file: ', error);
       });
   }, []);
 
   return (
     <div>
-      <p>Date: {date}</p>
-      <p>Timing: {timing}</p>
+      <p>{date}</p>
     </div>
   );
 };
