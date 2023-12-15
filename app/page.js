@@ -9,7 +9,14 @@ const UserLogin = () => {
         alt=""
         src="/stengglogo.svg" 
       />
-      <Watch />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "20px" }}>
+        <Watch class="watch" />
+        <Watch class="watch" />
+        <Watch class="watch" />
+        <Watch class="watch" />
+        <Watch class="watch" />
+        <Watch class="watch" />
+      </div>
     </div>
   );
 };
