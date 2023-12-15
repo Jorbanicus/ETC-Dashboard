@@ -1,5 +1,5 @@
 import React from 'react';
-import Watch from './components/watch';
+import Watch from './UI component/watch';
 
 const UserLogin = () => {
   return (
@@ -20,5 +20,6 @@ const UserLogin = () => {
     </div>
   );
 };
+
 
 export default UserLogin;

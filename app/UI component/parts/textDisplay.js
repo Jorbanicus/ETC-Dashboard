@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-function TextDisplay () {
+export default function TextDisplay () {
   const [date, setDate] = useState('');
 
   useEffect(() => {
@@ -20,9 +20,13 @@ function TextDisplay () {
 
   return (
     <div>
-      <p>{date}</p>
+      <div className='flex'>
+        <img className='mr-1' src='/lastrefreshedclock.svg' />
+        <p className='text-[#FFA500] text-sm'>Last Refreshed</p>
+      </div>
+      <div className='flex'>
+        <p className="text-white font-bold text-3xl">{date}</p>
+      </div>
     </div>
   );
 };
-
-export default TextDisplay;
