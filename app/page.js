@@ -1,5 +1,5 @@
 import React from 'react';
-import Watch from './UI component/watch';
+import WatchContainer from './UI component/watchcontainer';
 
 const UserLogin = () => {
   return (
@@ -9,17 +9,11 @@ const UserLogin = () => {
         alt=""
         src="/stengglogo.svg" 
       />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "20px" }}>
-        <Watch class="watch" />
-        <Watch class="watch" />
-        <Watch class="watch" />
-        <Watch class="watch" />
-        <Watch class="watch" />
-        <Watch class="watch" />
+      <div>
+        <WatchContainer class="WatchContainer" />
       </div>
     </div>
   );
 };
-
 
 export default UserLogin;

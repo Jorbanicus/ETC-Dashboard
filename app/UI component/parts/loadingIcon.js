@@ -2,7 +2,7 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
-export default function CircularColor() {
+export default function LoadingIcon() {
   return (
     <div>
       <div className='flex flex-start whitespace-nowrap text-[#FFA500] text-sm'>
