@@ -12,7 +12,7 @@ const WatchContainer = () => {
   ];
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', padding: '20px', margin: '0 auto' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', padding: '20px', margin: '0 auto'}}>
       {etcData.map((item, index) => (
         <Watch key={index} title={item.title} description={item.description} />
       ))}
