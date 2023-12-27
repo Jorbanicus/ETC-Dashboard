@@ -30,10 +30,10 @@ export default function Watch({ title, description }) {
     updateText();
 
     // Then update the text every 2 minutes
-    textGenerationIntervalId = setInterval(updateText, 30000); // 120000 ms = 2 minutes
+    textGenerationIntervalId = setInterval(updateText, 15000); // 120000 ms = 2 minutes
 
     // Check for output every minute
-    checkOutputIntervalId = setInterval(checkOutput, 15000); // 60000 ms = 1 minute
+    checkOutputIntervalId = setInterval(checkOutput, 7500); // 60000 ms = 1 minute
 
     // Clear intervals on component unmount
     return () => {
