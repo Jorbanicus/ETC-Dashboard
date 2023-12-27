@@ -1,23 +1,8 @@
-"use client";
+import React from 'react';
 
-import React, { useEffect, useState } from 'react';
-
-export default function TextDisplay () {
-  const [date, setDate] = useState('');
-
-  useEffect(() => {
-    const filePath = 'test.txt';
-    fetch(filePath)
-      .then(response => response.text())
-      .then(data => {
-        const lines = data.split('\n');
-        setDate(lines[0]);
-      })
-      .catch(error => {
-        console.error('Error reading the file: ', error);
-      });
-  }, []);
-
+export default function TextDisplay ({ lastValue }) {
+  console.log(lastValue);
+  
   return (
     <div>
       <div className='flex'>
@@ -25,7 +10,7 @@ export default function TextDisplay () {
         <p className='text-[#FFA500] text-sm'>Last Refreshed</p>
       </div>
       <div className='flex'>
-        <p className="text-white font-bold text-3xl">{date}</p>
+        <p className="text-white font-bold text-3xl">{lastValue}</p>
       </div>
     </div>
   );

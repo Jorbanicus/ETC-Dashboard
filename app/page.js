@@ -1,5 +1,5 @@
 import React from 'react';
-import WatchContainer from './UI component/watchcontainer';
+import WatchContainer from './Watchcontainer';
 
 const UserLogin = () => {
   return (

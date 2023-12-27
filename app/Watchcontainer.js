@@ -1,5 +1,5 @@
 import React from 'react';
-import Watch from './watch';
+import Watch from './UI component/Watch';
 
 const WatchContainer = () => {
   const etcData = [
