@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 let counter = 0;
 
@@ -14,13 +14,14 @@ const generateRandomText = () => {
         const year = date.getFullYear().toString().slice(-2);
 
         const formattedDate = `${hours}:${minutes}:${seconds} ${day}-${month}-${year}`;
-        console.log(formattedDate); // Log the newly generated text
+        console.log('Generated text:', formattedDate); // Log the newly generated text
         resolve(formattedDate);
     });
 };
 
 setInterval(async () => {
-    const filePath = path.join(process.cwd(), 'public', 'test.txt');
+    const filePath = 'E:\\jorbanicus\\Werk6.0 - ETC Machine Dashboard\\mingde\\public\\test.txt';
+    console.log('File path:', filePath); // Log the file path
     const newValue = await generateRandomText(); // Use generateRandomText to generate the new value
     fs.appendFile(filePath, `${newValue}\n`, 'utf8', (err) => {
         if (err) {
@@ -29,5 +30,6 @@ setInterval(async () => {
             console.log('Successfully wrote to file');
         }
     });
+    console.log('Counter:', counter); // Log the counter value
     counter++;
 }, 10000); // 10000 ms = 10 seconds
