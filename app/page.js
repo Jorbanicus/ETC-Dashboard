@@ -1,5 +1,5 @@
 import React from 'react';
-import WatchContainer from './Watchcontainer';
+import WatchContainer from './src/components/WatchDetails';
 
 const UserLogin = () => {
   return (
