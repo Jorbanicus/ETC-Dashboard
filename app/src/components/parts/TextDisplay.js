@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import LoadingIcon from './LoadingIcon';
 
 export default function TextDisplay ({ lastValue }) {
-  console.log(lastValue);
+  console.log('TextDisplay lastValue:', lastValue);
 
   const textClasses = classNames({
     'text-white font-bold text-3xl': true,
@@ -17,7 +17,7 @@ export default function TextDisplay ({ lastValue }) {
         <p className='text-[#FFA500] text-sm'>Last Refreshed</p>
       </div>
       <div className={`flex ${textClasses}`}>
-        <p>{lastValue || <LoadingIcon/>}</p>
+        <p>{lastValue}</p>
       </div>
     </div>
   );
