@@ -4,7 +4,7 @@ const readLastLines = require('read-last-lines');
 const app = express();
 const port = 3001;
 const path = require('path');
-const filePath = path.join('E:', 'jorbanicus', 'Werk6.0 - ETC Machine Dashboard', 'mingde', 'public', 'test.txt');
+const filePath = path.join('E:', 'jorbanicus', 'Werk6.0 - ETC Machine Dashboard', 'mingde2', 'public', 'test.txt');
 
 function appendToFile() {
     const date = new Date();

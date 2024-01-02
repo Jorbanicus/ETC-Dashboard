@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import LoadingIcon from './LoadingIcon';
 
 export default function TextDisplay ({ lastValue }) {
   console.log('TextDisplay lastValue:', lastValue);

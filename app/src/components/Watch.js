@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import TextDisplay from './parts/TextDisplay';
 import LiveIcon from './parts/LiveIcon';
 import FailIcon from './parts/FailIcon';
-import LoadingIcon from './parts/LoadingIcon';
 
 export default function Watch({ title, description }) {
   const [isLoading, setIsLoading] = useState(true);
