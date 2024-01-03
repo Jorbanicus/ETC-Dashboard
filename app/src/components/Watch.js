@@ -10,26 +10,37 @@ export default function Watch({ title, description }) {
   const [lastUpdateTime, setLastUpdateTime] = useState(Date.now());
 
   useEffect(() => {
+    console.log('useEffect triggered');
     const interval = setInterval(() => {
-      fetch('http://localhost:3001/')
-        .then(response => response.text())
+      console.log('Making fetch request');
+      fetch('http://localhost:3001/') 
+        .then(response => response.text()) 
         .then(data => {
-          if (data !== lastValue) {
-            setLastValue(data);
+          const newValue = data; 
+          if (newValue !== lastValue) {
+            setLastValue(newValue);
             setLastUpdateTime(Date.now());
             setIsLoading(false);
           } else if (Date.now() - lastUpdateTime > 7 * 60 * 1000) {
             setIsLoading(true);
           }
+
+          // Log the state
+          console.log('State:', {
+            lastValue: newValue,
+            lastUpdateTime: Date.now(),
+            isLoading: newValue !== lastValue ? false : (Date.now() - lastUpdateTime > 7 * 60 * 1000)
+          });
         })
+
         .catch(error => {
           console.error('Fetch Error:', error);
           setIsLoading(false);
         });
-    }, 1000);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, []); // Removed [lastValue, lastUpdateTime]
+  }, [lastValue, lastUpdateTime]);
 
   return (
     <div className='flex flex-col md:flex-row bg-black p-1 rounded-md items-center'>
@@ -39,7 +50,7 @@ export default function Watch({ title, description }) {
           <div className='flex flex-start whitespace-nowrap'>{description}</div>
         </div>
         <div className='flex flex-row justify-center items-center space-x-2'>
-          <TextDisplay text={lastValue} /> {/* Always show TextDisplay */}
+          <TextDisplay data={lastValue} />
           {isLoading ? <FailIcon /> : 
             (lastValue && Date.now() - lastUpdateTime <= 7 * 60 * 1000) ? <LiveIcon /> : <FailIcon />}
         </div>

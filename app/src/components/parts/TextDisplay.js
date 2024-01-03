@@ -1,13 +1,21 @@
 import classNames from 'classnames';
 
-export default function TextDisplay ({ lastValue }) {
-  console.log('TextDisplay lastValue:', lastValue);
+export default function TextDisplay ({ data }) {
+  if (data === null) {
+    return <div>Loading...</div>;
+  }
 
-  const textClasses = classNames({
-    'text-white font-bold text-3xl': true,
-    'justify-start': !!lastValue,
-    'justify-center': !lastValue,
-  });
+  console.log('TextDisplay lastValue:', data);
+
+  const textClasses = classNames(
+    'text-white',
+    'font-bold',
+    'text-3xl',
+    {
+      'justify-start': data,
+      'justify-center': !data,
+    }
+  );
 
   return (
     <div>
@@ -16,7 +24,7 @@ export default function TextDisplay ({ lastValue }) {
         <p className='text-[#FFA500] text-sm'>Last Refreshed</p>
       </div>
       <div className={`flex ${textClasses}`}>
-        <p>{lastValue}</p>
+        <p>{data}</p>
       </div>
     </div>
   );
