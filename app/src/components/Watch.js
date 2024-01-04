@@ -4,16 +4,16 @@ import TextDisplay from './parts/TextDisplay';
 import LiveIcon from './parts/LiveIcon';
 import FailIcon from './parts/FailIcon';
 
-export default function Watch({ title, description }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [lastValue, setLastValue] = useState(null);
+export default function Watch({ title, description, filePath }) {
+  const [lastValue, setLastValue] = useState('');
   const [lastUpdateTime, setLastUpdateTime] = useState(Date.now());
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     console.log('useEffect triggered');
     const interval = setInterval(() => {
       console.log('Making fetch request');
-      fetch('http://localhost:3001/') 
+      fetch(`http://localhost:3001/?filePath=${encodeURIComponent(filePath)}`) 
         .then(response => response.text()) 
         .then(data => {
           const newValue = data; 
@@ -40,7 +40,7 @@ export default function Watch({ title, description }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [lastValue, lastUpdateTime]);
+  }, [lastValue, lastUpdateTime, filePath]);
 
   return (
     <div className='flex flex-col md:flex-row bg-black p-1 rounded-md items-center'>

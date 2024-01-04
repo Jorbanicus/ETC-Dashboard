@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 export default function TextDisplay ({ data }) {
-  if (data === null) {
+  if (!data) {
     return <div>Loading...</div>;
   }
 

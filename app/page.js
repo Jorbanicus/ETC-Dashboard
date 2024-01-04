@@ -9,7 +9,7 @@ const UserLogin = () => {
         alt=""
         src="/stengglogo.svg" 
       />
-      <div>
+      <div style={{ paddingTop: '100px' }}>
         <WatchContainer class="WatchContainer" />
       </div>
     </div>
