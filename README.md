@@ -3,37 +3,35 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Description
 This application reads multiple self-updating timestamp txt. file and reflects it on an interface. 
 
-![Working Example](./arun/images/Capture.png)
-![Loading Example](./arun/images/Capture2.png)
-![Failed Example](./arun/images/Capture3.png)
+![Working Example](./images/Capture.png)
+![Loading Example](./images/Capture2.png)
+![Failed Example](./images/Capture3.png)
 
 # Getting Started
-First, edit the file location in src/components/WatchDetails.js to the file location of your txt. files.
-
-Secondly, double click the .bat file to run the application.
-
-Lastly, open [http://localhost:3000] with your browser to see the result if it has not been opened.
+1) edit the file location in src/components/WatchDetails.js to the file location of your txt. files.
+2) double click the .bat file to run the application.
+3) open [http://localhost:3000] with your browser to see the result if it has not been opened.
 
 # File Directory Structure
-/app
-|   layout.js (Layout of Page)
-|   page.js (Landing Page)
-|
-+---src
-|   +---API
-|   |       readFile.js 
-|   |
-|   \---components
-|       |   Watch.js (Main component that fetches and displays data)
-|       |   WatchDetails.js (Edit txt file location here)
-|       |
-|       \---parts
-|               FailIcon.js
-|               LiveIcon.js
-|               TextDisplay.js (Handles the display of text content)
-|
-\---styles
-        globals.css
+/app  
+|   layout.js (Layout of Page)  
+|   page.js (Landing Page)  
+|  
++---src  
+|   +---API  
+|   |       readFile.js   
+|   |  
+|   \---components  
+|       |   Watch.js (Main component that fetches and displays data)  
+|       |   WatchDetails.js (Edit txt file location here)  
+|       |  
+|       \---parts  
+|               FailIcon.js  
+|               LiveIcon.js  
+|               TextDisplay.js (Handles the display of text content)  
+|  
+\---styles  
+        globals.css  
 
 # Logic - Watch.js 
 TLDR: 
