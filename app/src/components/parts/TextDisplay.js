@@ -10,7 +10,7 @@ export default function TextDisplay ({ data }) {
   const textClasses = classNames(
     'text-white',
     'font-bold',
-    'text-3xl',
+    'text-xl',
     {
       'justify-start': data,
       'justify-center': !data,
@@ -21,7 +21,7 @@ export default function TextDisplay ({ data }) {
     <div>
       <div className='flex'>
         <img className='pr-1' src='/lastrefreshedclock.svg' />
-        <p className='text-[#FFA500] text-sm'>Last Refreshed</p>
+        <p className='text-[#FFA500] text-sm'>Last Refreshed:</p>
       </div>
       <div className={`flex ${textClasses}`}>
         <p>{data}</p>

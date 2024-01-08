@@ -3,7 +3,7 @@ import Watch from './Watch';
 import path from 'path';
 
 const WatchContainer = () => {
-  const baseDir = path.join('E:', 'jorbanicus', 'Werk6.0 - ETC Machine Dashboard', 'mingde2', 'public');
+  const baseDir = path.join('E:', 'jorbanicus');
   const etcData = [
     { title: 'ETC 1', description: 'Plant 1 Cargo Lift', filePath: path.join(baseDir, 'test1.txt') },
     { title: 'ETC 2', description: 'Plant 1 Cargo Lift', filePath: path.join(baseDir, 'test2.txt') },

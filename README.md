@@ -1,36 +1,74 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Description
+This application reads multiple self-updating timestamp txt. file and reflects it on an interface. 
 
-First, run the development server:
+![Working Example](./arun/images/Capture.png)
+![Loading Example](./arun/images/Capture2.png)
+![Failed Example](./arun/images/Capture3.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Getting Started
+First, edit the file location in src/components/WatchDetails.js to the file location of your txt. files.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Secondly, double click the .bat file to run the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Lastly, open [http://localhost:3000] with your browser to see the result if it has not been opened.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# File Directory Structure
+/app
+|   layout.js (Layout of Page)
+|   page.js (Landing Page)
+|
++---src
+|   +---API
+|   |       readFile.js 
+|   |
+|   \---components
+|       |   Watch.js (Main component that fetches and displays data)
+|       |   WatchDetails.js (Edit txt file location here)
+|       |
+|       \---parts
+|               FailIcon.js
+|               LiveIcon.js
+|               TextDisplay.js (Handles the display of text content)
+|
+\---styles
+        globals.css
 
-## Learn More
+# Logic - Watch.js 
+TLDR: 
+In the `Watch.js` component, the `useEffect` hook periodically fetches data from a txt. file every 5 seconds. The `LiveIcon` and `FailIcon` components are used to visually represent the state of the fetched data. If the data is up-to-date in the txt. file (updated within the last 7 minutes), `LiveIcon` is displayed. If the data is outdated (not updated within the last minute) or an error occurs, `FailIcon` is displayed.
 
-To learn more about Next.js, take a look at the following resources:
+## LiveIcon and FailIcon
+The LiveIcon and FailIcon are custom components that display different icons based on the state of the data fetching operation.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- If `isLoading` is `true`, the `FailIcon` is displayed. This happens when a fetch operation is in progress or when the last fetched value hasn't been updated for more than 7 minutes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- If `isLoading` is `false` and `lastValue` exists (i.e., it's not `null`, `undefined`, or an empty string), the code checks how much time has passed since the last update:
+    - If less than or equal to 7 minutes (420 000 milliseconds) have passed since the last update, the `LiveIcon` is displayed. This indicates that the data is up-to-date.
+    - If more than 7 minutes have passed since the last update, the `FailIcon` is displayed. This indicates that the data is outdated.
 
-## Deploy on Vercel
+- If `isLoading` is `false` and `lastValue` doesn't exist, the `FailIcon` is displayed. This could indicate that there was an error fetching the data or that the data is not available.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## useEffect Hook
+The `useEffect` hook in this code is used to periodically fetch the last line of a file from a server and update the component's state based on the fetched data. Here's a step-by-step explanation:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- When the component mounts or the `lastValue`, `lastUpdateTime`, or `filePath` variables change, the `useEffect` hook is triggered.
+
+- Inside the `useEffect`, an interval is set up to run every 5 seconds (5000 milliseconds).
+
+- Each time the interval runs, it makes a fetch request to `http://localhost:3000/`, passing the `filePath` as a query parameter.
+
+- If the fetch request is successful, it processes the response as text and then updates the component's state:
+    - If the fetched data (`newValue`) is different from the current `lastValue`, it updates `lastValue` with `newValue`, sets `lastUpdateTime` to the current time, and sets `isLoading` to `false`.
+    - If the fetched data is the same as the current `lastValue` and more than 7 minutes have passed since the last update, it sets `isLoading` to `true`.
+
+- If the fetch request fails, it logs the error and sets `isLoading` to `false`.
+
+- When the component unmounts or before the next time the `useEffect` runs, it clears the interval to prevent memory leaks.
+
+# Creator
+This project was created by Jorbanicus.
+
+# License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
