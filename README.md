@@ -18,7 +18,8 @@ Failed Example:
 3) Open [http://localhost:3000] with your browser to see the result if it has not been opened.
 
 # File Directory Structure
-```/app  
+```
+/app  
 |   layout.js (Layout of Page)  
 |   page.js (Landing Page)  
 |  
