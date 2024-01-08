@@ -3,17 +3,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Description
 This application reads multiple self-updating timestamp txt. file and reflects it on an interface. 
 
+Working Example:
 ![Working Example](./images/Capture.png)
-![Loading Example](./images/Capture2.png)
+
+Initial Startup Example:
+![Initial Startup Example](./images/Capture2.png)
+
+Failed Example:
 ![Failed Example](./images/Capture3.png)
 
 # Getting Started
-1) edit the file location in src/components/WatchDetails.js to the file location of your txt. files.
-2) double click the .bat file to run the application.
-3) open [http://localhost:3000] with your browser to see the result if it has not been opened.
+1) Edit the file location in src/components/WatchDetails.js to the file location of your txt. files.
+2) Double click the .bat file to run the application.
+3) Open [http://localhost:3000] with your browser to see the result if it has not been opened.
 
 # File Directory Structure
-/app  
+```/app  
 |   layout.js (Layout of Page)  
 |   page.js (Landing Page)  
 |  
@@ -31,7 +36,8 @@ This application reads multiple self-updating timestamp txt. file and reflects i
 |               TextDisplay.js (Handles the display of text content)  
 |  
 \---styles  
-        globals.css  
+        globals.css 
+``` 
 
 # Logic - Watch.js 
 TLDR: 
