@@ -76,4 +76,4 @@ The `useEffect` hook in this code is used to periodically fetch the last line of
 This project was created by Jorbanicus.
 
 # License
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)."# arun" 
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
